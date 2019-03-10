@@ -45,8 +45,12 @@ public class AuditeurCNAM {
      *         homonymes...
      */
     public String login() {
-        return nom.substring(0,6)+"-"+Character.toString(prenom.charAt(0));// à compléter
-    }
+        if(nom.length() < 6){
+            return (nom+"-"+Character.toString(prenom.charAt(0))).toLowerCase().replaceAll("[^A-Za-z0-9]", "_");}
+            else{
+        return (nom.substring(0,6)+"-"+Character.toString(prenom.charAt(0))).toLowerCase().replaceAll("[^A-Za-z0-9]", "_");// à compléter
+       }
+      }
 
     /**
      * Lecture du nom de l'auditeur.
